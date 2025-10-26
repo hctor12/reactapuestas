@@ -25,10 +25,13 @@ const Jugadores = () => {
 
   return (
     <Container className="flex flex-col items-center">
-      <button className="btn btn-success" onClick={() => navigate(-1)}>
+      <button
+        className="btn btn-success"
+        onClick={() => navigate(location.pathname.substring(0, 9, 1))}
+      >
         Volver
       </button>
-      <table className="table table-info text-center">
+      <table className="table table-info" style={{ textAlign: "center" }}>
         <thead>
           <tr className="font-bold">
             <th>NOMBRE</th>
@@ -39,19 +42,28 @@ const Jugadores = () => {
         <tbody>
           {jugadores.map((jug, index) => {
             return (
-              <tr key={index}>
-                <td>{jug.nombre}</td>
-                <td>
-                  <img
-                    src={jug.imagen}
-                    alt="ImgJugador"
+              <tr key={index} style={{ height: "170px" }}>
+                <td style={{ verticalAlign: "middle" }}>{jug.nombre}</td>
+                <td style={{ verticalAlign: "middle" }}>
+                  <div
                     style={{
-                      width: "150px",
-                      height: "150px",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
-                  />
+                  >
+                    <img
+                      src={jug.imagen}
+                      alt="ImgJugador"
+                      style={{
+                        width: "150px",
+                        height: "150px",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </div>
                 </td>
-                <td>
+                <td style={{ verticalAlign: "middle" }}>
                   <button
                     className="btn btn-outline-danger"
                     onClick={() =>

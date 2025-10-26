@@ -6,7 +6,7 @@ import rmEscudo from "../assets/rmEscudo.png";
 import { useNavigate } from "react-router-dom";
 
 const Equipo = (props) => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const [equipo, setEquipo] = useState(null);
   const url = Global.apiApuestas;
 
